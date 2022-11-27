@@ -5,11 +5,11 @@ import jwt from 'jsonwebtoken'
 
 class ADMController {
 
-    static temporarioGET(req, res) { // ROTA APENAS PARA FINS ILUSTRATIVOS
-        ADM.find((e, results) =>  {
-            res.send(results)
-        })
-    }
+    // static temporarioGET(req, res) { // ROTA APENAS PARA FINS ILUSTRATIVOS
+    //     ADM.find((e, results) =>  {
+    //         res.send(results)
+    //     })
+    // }
 
     static async Login(req, res) {
 

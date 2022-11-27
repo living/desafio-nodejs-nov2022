@@ -1,3 +1,5 @@
 import { app } from "./src/app.js";
 
-app.listen(8080, console.log(`app rodando em http://localhost:8080`))
+const porta = process.env.PORT || 8080
+
+app.listen(porta, console.log(`app rodando em http://localhost:${porta}`))

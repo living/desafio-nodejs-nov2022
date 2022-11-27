@@ -4,11 +4,23 @@ import { testaLivro } from "../utils/rodaTestes.js"
 class LivrosController {
 
     static get_livros(req, res) {
-        Livro.find({},'-PRECO -__v -createdAt -updatedAt')
+
+        Livro.find(req.query,'-PRECO -__v -createdAt -updatedAt')
             .populate('EDITORA', '-updatedAt -__v -createdAt -LIVROS')
             .exec((err, livros) => {
                 if(err) {
                     res.status(400).send({message: `${err.message}`})
+                    return
+                }
+
+                if(!livros) {
+                    res.status(404).send({
+                        message: `a requisição 
+                        ${req.query}
+                        não achou resultado
+                        `
+                    })
+                    return
                 }
 
                 res.status(200).send(livros)
@@ -39,11 +51,12 @@ class LivrosController {
     }
 
     static get_livros_adm(req, res) {
-        Livro.find()
+        Livro.find(req.query)
             .populate('EDITORA', '-LIVROS')
             .exec((err, livros) => {
                 if(err) {
                     res.status(400).send({message: `${err.message}`})
+                    return
                 }
 
                 res.status(200).send(livros)

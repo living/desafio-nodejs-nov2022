@@ -29,10 +29,14 @@ class ADMController {
 
         const userToken = jwt.sign({
             id:usuarioExistente._id
-        }, process.env.secret)
+        }, process.env.secret, {
+            expiresIn: "1d"
+        })
 
-        res.status(200).send(`Bem-vindo 
-            ${userToken}`)
+        res.status(200).send({
+            message: "Bem-vindo, seu token expira em 1 dia",
+            token: userToken
+        })
     }
 
     static async Cadastrar(req, res) {

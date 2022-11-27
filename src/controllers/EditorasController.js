@@ -5,7 +5,7 @@ import { testaEditora } from "../utils/rodaTestes.js"
 class EditorasController {
 
     static get_editoras(req, res) {
-        Editora.find({},'_id NOME CNPJ' ,(err, editoras) => {
+        Editora.find(req.query,'_id NOME CNPJ' ,(err, editoras) => {
             if(err) {
                 res.status(400).send({message: `${err.message}`})
                 return
@@ -36,11 +36,6 @@ class EditorasController {
                     res.status(400).send({message: `${err.message}`})
                     return
                 }
-
-                if(!livros) {
-                    editora.LIVROS = [];
-                }
-
                 
                 livros.forEach((livro) => {
                     editora.LIVROS.push(livro)
@@ -54,7 +49,7 @@ class EditorasController {
     }
 
     static get_editora_adm(req, res) {
-        Editora.find({}, (err, editoras) => {
+        Editora.find(req.query, (err, editoras) => {
             if(err) {
                 res.status(400).send({message: `${err.message}`})
                 return

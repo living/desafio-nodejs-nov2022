@@ -4,6 +4,10 @@ import { livrosRouter } from './livrosRoutes.js'
 import { admRouter } from "./admRoute.js";
 
 function appConfig(app) {
+    app.get('/', (req, res) => {
+        res.send("Olá, acesse /livros para ir a rota de livros")
+    })
+
     app.use(
         express.json(),
         livrosRouter,

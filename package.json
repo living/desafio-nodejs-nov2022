@@ -1,0 +1,39 @@
+{
+  "type": "module",
+  "name": "desafio-nodejs-nov2022",
+  "version": "1.0.0",
+  "description": "Desafio living de NodeJS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henrique307/desafio-nodejs-nov2022.git"
+  },
+  "keywords": [
+    "API",
+    "Node",
+    "CRUD",
+    "desafio"
+  ],
+  "author": "Henrique Florencio da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henrique307/desafio-nodejs-nov2022/issues"
+  },
+  "homepage": "https://github.com/henrique307/desafio-nodejs-nov2022#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.12.0",
+    "mongoose": "^6.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

@@ -2,6 +2,7 @@ import express from "express";
 import { editorasRouter } from './editorasRoutes.js'
 import { livrosRouter } from './livrosRoutes.js'
 import { admRouter } from "./admRoute.js";
+import cors from 'cors'
 
 function appConfig(app) {
     app.get('/', (req, res) => {
@@ -9,15 +10,11 @@ function appConfig(app) {
     })
 
     app.use(
+        cors(),
         express.json(),
         livrosRouter,
         editorasRouter,
         admRouter,
-        function(req, res, next) {
-            res.header("Access-Control-Allow-Origin", "https://editor.swagger.io"); // update to match the domain you will make the request from
-            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-            next();
-        },
     )
 }
 // TEMPLATES DE REQUISIÇÃO PARA LIVROS E EDITORA RESPECTIVAMENTE

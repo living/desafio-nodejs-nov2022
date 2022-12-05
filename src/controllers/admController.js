@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 
 class ADMController {
 
-    // static temporarioGET(req, res) { // ROTA APENAS PARA FINS ILUSTRATIVOS
+    // static temporarioGET(req, res) {
     //     ADM.find((e, results) =>  {
     //         res.send(results)
     //     })

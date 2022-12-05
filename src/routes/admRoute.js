@@ -5,7 +5,7 @@ import { Restrito } from "../utils/restrito.js";
 const admRouter = Router()
 
 admRouter
-    //.get('/adm', Restrito, ADMController.temporarioGET) // rota para fins de desenvolvimento
+    // .get('/adm', ADMController.temporarioGET) // rota para fins de desenvolvimento
     .post('/adm/login', ADMController.Login)
     .post('/adm/cadastro', Restrito, ADMController.Cadastrar) // Só administradores podem cadastrar mais administradores
     .put('/adm/:id', Restrito, ADMController.ModificaUsuario)
